@@ -1,14 +1,24 @@
-import { Button } from "@mui/material";
-import React from "react";
 import Layout from "./components/layout/Layout";
+import { Route, Routes, Navigate } from "react-router-dom";
+import MoviesView from "./pages/movies/MoviesView";
+import MovieDetailsView from "./pages/movies/MovieDetailsView";
+import SeriesView from "./pages/series/SeriesView";
+import SeriesDetailView from "./pages/series/SeriesDetailsView";
+import SearchView from "./pages/search/SearchView";
+import NotFoundView from "./pages/errors/NotFoundView";
 
 function App() {
   return (
     <Layout>
-      <h1>Reactflix app :D</h1>
-      <Button variant="contained" color="success">
-        Click me!
-      </Button>
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/movies" />} />
+        <Route path="/movies" element={<MoviesView />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsView />} />
+        <Route path="/series" element={<SeriesView />} />
+        <Route path="/series/:serieId" element={<SeriesDetailView />} />
+        <Route path="/search" element={<SearchView />} />
+        <Route path='*' element={<NotFoundView />} />
+      </Routes>
     </Layout>
   );
 }
