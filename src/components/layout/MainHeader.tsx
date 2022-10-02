@@ -14,6 +14,8 @@ import { NavLink } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
 
 const pages = [
   { title: "Filmy", path: "/films" },
@@ -21,8 +23,13 @@ const pages = [
   { title: "Moja Lista", path: "my-list" },
 ];
 
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
 const MainHeader: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
 
@@ -30,8 +37,16 @@ const MainHeader: React.FC = () => {
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   const darkTheme = createTheme({
@@ -51,6 +66,9 @@ const MainHeader: React.FC = () => {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
+    display: "flex",
+    flexShrink: 2,
+    mr: 2,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
@@ -185,10 +203,39 @@ const MainHeader: React.FC = () => {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Szukaj..."
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <Box sx={{ flexGrow: 0, ml: 2 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Marcus Ferud" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
     </ThemeProvider>
