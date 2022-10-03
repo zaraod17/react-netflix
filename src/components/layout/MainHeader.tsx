@@ -18,9 +18,9 @@ import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 
 const pages = [
-  { title: "Filmy", path: "/films" },
-  { title: "Seriale", path: "series" },
-  { title: "Moja Lista", path: "my-list" },
+  { title: "Filmy", path: "/movies" },
+  { title: "Seriale", path: "/series" },
+  { title: "Moja Lista", path: "/my-list" },
 ];
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -68,9 +68,9 @@ const MainHeader: React.FC = () => {
     marginLeft: 0,
     display: "flex",
     flexShrink: 2,
-    mr: 2,
+
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("xs")]: {
       marginLeft: theme.spacing(1),
       width: "auto",
     },
@@ -160,9 +160,19 @@ const MainHeader: React.FC = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page.title}</Typography>
-                </MenuItem>
+                <NavLink
+                  style={({ isActive, isPending }) => {
+                    return {
+                      color: isActive ? "white" : "lightgrey",
+                      textDecoration: "none",
+                    };
+                  }}
+                  to={page.path}
+                >
+                  <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                </NavLink>
               ))}
             </Menu>
 
@@ -185,16 +195,26 @@ const MainHeader: React.FC = () => {
               RF
             </Typography>
           </Box>
-
+          <p></p>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page.title}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+              <NavLink
+                style={({ isActive, isPending }) => {
+                  return {
+                    color: isActive ? "white" : "lightgrey",
+                    textDecoration: "none",
+                  };
+                }}
+                to={page.path}
               >
-                {page.title}
-              </Button>
+                <Button
+                  key={page.title}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "inherit", display: "flex" }}
+                >
+                  {page.title}
+                </Button>
+              </NavLink>
 
               //Nav link here
             ))}
