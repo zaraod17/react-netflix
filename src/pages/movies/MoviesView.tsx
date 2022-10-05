@@ -1,7 +1,13 @@
 import React from "react";
+import ShowCarousel from "../../components/show/ShowCarousel";
 
 const MoviesView: React.FC = () => {
-    return <h1>Movies page</h1>
-}
+  return (
+    <>
+      <ShowCarousel />
+      <ShowCarousel />
+    </>
+  );
+};
 
 export default MoviesView;

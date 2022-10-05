@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import SearchIcon from "@mui/icons-material/Search";
@@ -21,7 +20,7 @@ const pages = [
   { title: "Filmy", path: "/movies" },
   { title: "Seriale", path: "/series" },
   { title: "Moja Lista", path: "/my-list" },
-];
+]
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
