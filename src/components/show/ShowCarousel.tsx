@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import 'swiper/css/navigation'
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Pagination, Navigation } from "swiper";
@@ -12,27 +12,39 @@ const ShowCarousel: React.FC = () => {
     <>
       <Grid item xs={12}>
         <Swiper
-          slidesPerView={1}
+          slidesPerView={6}
+          slidesPerGroup={6}
           spaceBetween={10}
           navigation={true}
+          loop={true}
+          loopFillGroupWithBlank={true}
           style={{
-            color: 'white'
-
+            color: "white",
+            paddingBottom: "0.8rem"
           }}
           pagination={{
             clickable: true,
           }}
           breakpoints={{
+            400: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+              spaceBetween: 10
+            },
+
             640: {
-              slidesPerView: 2,
+              slidesPerView: 4,
+              slidesPerGroup: 4,
               spaceBetween: 20,
             },
             786: {
-              slidesPerView: 4,
+              slidesPerView: 5,
+              slidesPerGroup: 5,
               spaceBetween: 40,
             },
             1024: {
               slidesPerView: 6,
+              slidesPerGroup: 6,
               spaceBetween: 50,
             },
           }}

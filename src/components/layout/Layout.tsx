@@ -7,7 +7,7 @@ const Layout: React.FC<PropsWithChildren> = (props) => {
   return (
     <React.Fragment>
       <MainHeader />
-      <Box sx={{ flexGrow: 1, marginTop: "1rem"}}>
+      <Box sx={{ flexGrow: 1, marginTop: "1rem", marginInline: "1rem"}}>
         <Grid container rowSpacing={4}>
           {props.children}
         </Grid>
