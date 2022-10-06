@@ -160,6 +160,7 @@ const MainHeader: React.FC = () => {
             >
               {pages.map((page) => (
                 <NavLink
+                key={page.title}
                   style={({ isActive, isPending }) => {
                     return {
                       color: isActive ? "white" : "lightgrey",
@@ -198,6 +199,7 @@ const MainHeader: React.FC = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <NavLink
+              key={page.title}
                 style={({ isActive, isPending }) => {
                   return {
                     color: isActive ? "white" : "lightgrey",
