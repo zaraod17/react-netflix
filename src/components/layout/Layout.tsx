@@ -7,8 +7,15 @@ const Layout: React.FC<PropsWithChildren> = (props) => {
   return (
     <React.Fragment>
       <MainHeader />
-      <Box sx={{ flexGrow: 1, marginTop: "1rem", marginInline: "1rem"}}>
-        <Grid container rowSpacing={4}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          marginTop: "6rem",
+          marginInline: "1rem",
+          position: "relative",
+        }}
+      >
+        <Grid container rowSpacing={10} >
           {props.children}
         </Grid>
       </Box>
