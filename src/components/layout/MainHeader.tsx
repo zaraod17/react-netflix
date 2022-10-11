@@ -104,7 +104,7 @@ const MainHeader: React.FC = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="static" color="primary">
+      <AppBar position="sticky" color="primary">
         <Toolbar disableGutters sx={{ marginInline: "2%" }}>
           <Typography
             variant="h5"

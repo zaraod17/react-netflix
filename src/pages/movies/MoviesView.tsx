@@ -1,11 +1,24 @@
 import React from "react";
+import { Box, Grid } from "@mui/material";
+
+import ShowBanner from "../../components/show/ShowBanner";
 import ShowCarousel from "../../components/show/ShowCarousel";
 
 const MoviesView: React.FC = () => {
   return (
     <>
-      <ShowCarousel />
-      <ShowCarousel />
+      <ShowBanner />
+      <Box sx={{
+        marginInline: "1rem",
+        position: "relative",
+        marginTop: "-27vh",
+        zIndex: 3
+      }}>
+        <Grid container rowSpacing={10}>
+          <ShowCarousel />
+          <ShowCarousel />
+        </Grid>
+      </Box>
     </>
   );
 };
