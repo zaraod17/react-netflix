@@ -7,6 +7,7 @@ import SeriesDetailView from "./pages/series/SeriesDetailsView";
 import SearchView from "./pages/search/SearchView";
 import NotFoundView from "./pages/errors/NotFoundView";
 import MyListView from "./pages/user/MyListView";
+import AuthView from "./pages/auth/AuthView";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/series/:serieId" element={<SeriesDetailView />} />
         <Route path="/search" element={<SearchView />} />
         <Route path="/my-list" element={<MyListView />} />
+        <Route path="/auth" element={<AuthView />}></Route>
         <Route path="*" element={<NotFoundView />} />
       </Routes>
     </Layout>

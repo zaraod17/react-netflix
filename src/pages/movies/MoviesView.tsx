@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
 
-import ShowBanner from "../../components/show/ShowBanner";
-import ShowCarousel from "../../components/show/ShowCarousel";
+import ShowBanner from "../../components/show/banner/ShowBanner";
+import ShowCarousel from "../../components/show/slider/ShowCarousel";
 
 const MoviesView: React.FC = () => {
   return (
