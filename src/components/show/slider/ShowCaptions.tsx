@@ -1,10 +1,24 @@
+import { useState} from 'react'
+
 import { Box, IconButton } from "@mui/material";
-import { PlayArrow, Add } from "@mui/icons-material";
+import { PlayArrow, Add, Info } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
+import ShowInfo from "../ShowInfo";
 
 const ShowCaptions: React.FC = () => {
+
+  const [open, setOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
@@ -60,8 +74,14 @@ const ShowCaptions: React.FC = () => {
               <Add />
             </IconButton>
           </ActionTooltip>
+          <ActionTooltip title="Pokaż info">
+            <IconButton onClick={openModal}>
+              <Info />
+            </IconButton>
+          </ActionTooltip>
         </Box>
       </Box>
+      <ShowInfo isOpen={open} handleClose={closeModal} />
     </ThemeProvider>
   );
 };

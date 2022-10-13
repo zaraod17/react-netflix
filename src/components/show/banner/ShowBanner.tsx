@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { Box, Grid, Button } from "@mui/material";
 import { PlayArrow, Info } from "@mui/icons-material";
 
 import "./ShowBanner.scss";
+import ShowInfo from "../ShowInfo";
 
 const ShowBanner: React.FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  }
+
   return (
     <Box position="relative">
       <img
@@ -45,6 +57,7 @@ const ShowBanner: React.FC = () => {
             sx={{
               color: "white",
             }}
+            onClick={openModal}
             startIcon={<Info />}
           >
             <h4>Info</h4>
@@ -53,6 +66,7 @@ const ShowBanner: React.FC = () => {
       </Grid>
 
       <div className="gradient"></div>
+      <ShowInfo handleClose={closeModal} isOpen={open} />
     </Box>
   );
 };
