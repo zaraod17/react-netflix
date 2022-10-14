@@ -3,9 +3,8 @@ import { useState} from 'react'
 import { Box, IconButton } from "@mui/material";
 import { PlayArrow, Add, Info } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
-import { styled } from "@mui/material/styles";
 import ShowInfo from "../ShowInfo";
+import ActionTooltip from '../../ui/ActionTooltip';
 
 const ShowCaptions: React.FC = () => {
 
@@ -28,16 +27,6 @@ const ShowCaptions: React.FC = () => {
     },
   });
 
-  const ActionTooltip = styled(({ className, ...props }: TooltipProps) => (
-    <Tooltip {...props} arrow classes={{ popper: className }} />
-  ))(({ theme }) => ({
-    [`& .${tooltipClasses.arrow}`]: {
-      color: theme.palette.common.black,
-    },
-    [`& .${tooltipClasses.tooltip}`]: {
-      backgroundColor: theme.palette.common.black,
-    },
-  }));
 
   return (
     <ThemeProvider theme={darkTheme}>

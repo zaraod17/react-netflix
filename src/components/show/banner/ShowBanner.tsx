@@ -37,7 +37,7 @@ const ShowBanner: React.FC = () => {
             </strong>
           </p>
         </Grid>
-        <Grid className="grid-item" item xs={6}>
+        <Grid className="grid-item" item sm={12} md={6}>
           <Button
             sx={{
               color: "white",
@@ -51,7 +51,8 @@ const ShowBanner: React.FC = () => {
           className="grid-item"
           justifyContent="flex-end !important"
           item
-          xs={6}
+          md={6}
+          sm={12}
         >
           <Button
             sx={{
