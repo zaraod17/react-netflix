@@ -14,7 +14,7 @@ const ShowBanner: React.FC = () => {
 
   const closeModal = () => {
     setOpen(false);
-  }
+  };
 
   return (
     <Box position="relative">
@@ -40,7 +40,9 @@ const ShowBanner: React.FC = () => {
         <Grid className="grid-item" item sm={12} md={6}>
           <Button
             sx={{
-              color: "white",
+              color: "black",
+              backgroundColor: "white !important",
+              zIndex: 1,
             }}
             startIcon={<PlayArrow />}
           >
@@ -56,7 +58,9 @@ const ShowBanner: React.FC = () => {
         >
           <Button
             sx={{
-              color: "white",
+              color: "black",
+              backgroundColor: "white !important",
+              zIndex: 1,
             }}
             onClick={openModal}
             startIcon={<Info />}

@@ -5,7 +5,7 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import { IconButton } from "@mui/material";
-import { Add, PlayArrow } from "@mui/icons-material";
+import { Add, PlayArrow, CloseRounded } from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
 
 const style = {
@@ -13,13 +13,13 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
+  height: "70vh",
   width: "75vw",
   bgcolor: "inherit",
   border: "none",
   boxShadow: 24,
   p: 0,
   color: "black",
-  height: "40vh",
   borderRadius: "1rem",
 };
 
@@ -27,24 +27,30 @@ const ShowInfo: React.FC<{
   isOpen: boolean;
   handleClose: () => void;
 }> = (props) => {
-  // const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(props.isOpen);
   // const handleOpen = () => setOpen(props.isOpen);
   // const handleClose = () => setOpen(false);
+
+  const { isOpen, handleClose } = props;
+
+  React.useEffect(() => {
+    setOpen(isOpen);
+  }, [isOpen]);
 
   return (
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={props.isOpen}
-        onClose={props.handleClose}
+        open={open}
+        onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        <Fade in={props.isOpen}>
+        <Fade in={open}>
           <Box sx={style}>
             <img
               src="https://cdn.mos.cms.futurecdn.net/rwow8CCG3C3GrqHGiK8qcJ-1200-80.jpg"
@@ -57,6 +63,18 @@ const ShowInfo: React.FC<{
                 borderRadius: "inherit",
               }}
             />
+            <IconButton
+              onClick={handleClose}
+              sx={{
+                position: "absolute",
+                color: "white",
+                zIndex: 1,
+                right: "2%",
+                top: "2%",
+              }}
+            >
+              <CloseRounded />
+            </IconButton>
             <Typography
               id="transition-modal-title"
               variant="h6"
