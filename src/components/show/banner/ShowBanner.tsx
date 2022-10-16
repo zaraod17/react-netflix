@@ -37,7 +37,7 @@ const ShowBanner: React.FC = () => {
             </strong>
           </p>
         </Grid>
-        <Grid className="grid-item" item sm={12} md={6}>
+        <Grid className="grid-item" item xs={6} sm={6} md={6}>
           <Button
             sx={{
               color: "black",
@@ -46,16 +46,20 @@ const ShowBanner: React.FC = () => {
             }}
             startIcon={<PlayArrow />}
           >
-            <h4>Odtwórz</h4>
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "flex",
+                },
+              }}
+            >
+              <h4>Odtwórz</h4>
+            </Box>
           </Button>
         </Grid>
-        <Grid
-          className="grid-item"
-          justifyContent="flex-end !important"
-          item
-          md={6}
-          sm={12}
-        >
+        <Grid className="grid-item" item xs={6} sm={6} md={6}>
           <Button
             sx={{
               color: "black",
@@ -65,7 +69,17 @@ const ShowBanner: React.FC = () => {
             onClick={openModal}
             startIcon={<Info />}
           >
-            <h4>Info</h4>
+            <Box
+              sx={{
+                display: {
+                  xs: "none",
+                  sm: "none",
+                  md: "flex",
+                },
+              }}
+            >
+              <h4>Info</h4>
+            </Box>
           </Button>
         </Grid>
       </Grid>
