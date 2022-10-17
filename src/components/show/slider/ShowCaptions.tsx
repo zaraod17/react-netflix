@@ -3,7 +3,7 @@ import { useState} from 'react'
 import { Box, IconButton } from "@mui/material";
 import { PlayArrow, Add, Info } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import ShowInfo from "../ShowInfo";
+import ShowInfo from "../info/ShowInfo";
 import ActionTooltip from '../../ui/ActionTooltip';
 
 const ShowCaptions: React.FC = () => {

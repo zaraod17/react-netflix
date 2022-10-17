@@ -14,7 +14,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 
-import SearchInput from "../ui/SearchInput";
+import SearchInput from "../search/SearchInput";
 
 const pages = [
   { title: "Filmy", path: "/movies" },

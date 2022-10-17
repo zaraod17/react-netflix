@@ -1,7 +1,28 @@
-import React from 'react'
+import React from "react";
+import { Box, Grid } from "@mui/material";
+
+import ShowBanner from "../../components/show/banner/ShowBanner";
+import ShowCarousel from "../../components/show/slider/ShowCarousel";
 
 const SeriesView: React.FC = () => {
-    return <h2>Series page</h2>
-}
+  return (
+    <>
+      <ShowBanner />
+      <Box
+        sx={{
+          marginInline: "1rem",
+          position: "relative",
+          marginTop: "-27vh",
+          zIndex: 3,
+        }}
+      >
+        <Grid container rowSpacing={10}>
+          <ShowCarousel />
+          <ShowCarousel />
+        </Grid>
+      </Box>
+    </>
+  );
+};
 
 export default SeriesView;

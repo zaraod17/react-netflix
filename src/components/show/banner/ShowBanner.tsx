@@ -3,7 +3,7 @@ import { Box, Grid, Button } from "@mui/material";
 import { PlayArrow, Info } from "@mui/icons-material";
 
 import "./ShowBanner.scss";
-import ShowInfo from "../ShowInfo";
+import ShowInfo from "../info/ShowInfo";
 
 const ShowBanner: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
