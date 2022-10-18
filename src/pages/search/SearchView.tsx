@@ -1,12 +1,26 @@
 import React from "react";
+import { Grid, Box, IconButton } from "@mui/material";
 
-import "./Search.scss"
+import classes from "./Search.module.scss";
 
-import { Box, Grid } from "@mui/material";
+import { Link } from "react-router-dom";
+import { PlayArrow, Add, Info } from "@mui/icons-material";
+import ShowInfo from "../../components/show/info/ShowInfo";
+import ActionTooltip from "../../components/ui/ActionTooltip";
 
 const SearchView: React.FC = () => {
   let params = new URL(document.location.toString()).searchParams;
   let searchedTerm = params.get("s");
+
+  const [open, setOpen] = React.useState<boolean>(false);
+
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+  };
 
   return (
     <Box
@@ -37,15 +51,67 @@ const SearchView: React.FC = () => {
               position: "relative",
             }}
           >
-            <Box className="list-item">
-              <img
-                src="https://cdn.mos.cms.futurecdn.net/rwow8CCG3C3GrqHGiK8qcJ-1200-80.jpg"
-                alt="show image"
-              />
+            <Box className={classes.item}>
+              <Link className={classes.link} to="/my-list">
+                <img
+                  src="https://cdn.mos.cms.futurecdn.net/rwow8CCG3C3GrqHGiK8qcJ-1200-80.jpg"
+                  alt="show image"
+                />
+                <Box
+                  className={classes.actions}
+                  sx={{
+                    display: "block",
+                    width: "100%",
+                    position: "absolute",
+                    height: "35%",
+                    bottom: "0",
+                    borderRadius: "0 0 14px 14px",
+                    objectFit: "cover",
+                    color: "white",
+                    backgroundColor: "rgba(177, 168, 168, 0.3)",
+                  }}
+                >
+                  <h5
+                    style={{
+                      textAlign: "center",
+                      marginBottom: "1%",
+                      marginTop: "2%",
+                    }}
+                  >
+                    Title
+                  </h5>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-evenly",
+                      flexGrow: 1,
+                      marginInline: "0.5vw",
+                      color: "white",
+                    }}
+                  >
+                    <ActionTooltip title="Odtwarzaj">
+                      <IconButton sx={{ color: "white" }}>
+                        <PlayArrow />
+                      </IconButton>
+                    </ActionTooltip>
+                    <ActionTooltip title="Dodaj do listy">
+                      <IconButton sx={{ color: "white" }}>
+                        <Add />
+                      </IconButton>
+                    </ActionTooltip>
+                    <ActionTooltip title="Pokaż info">
+                      <IconButton sx={{ color: "white" }} onClick={openModal}>
+                        <Info />
+                      </IconButton>
+                    </ActionTooltip>
+                  </Box>
+                </Box>
+              </Link>
             </Box>
           </Grid>
         ))}
       </Grid>
+      <ShowInfo isOpen={open} handleClose={closeModal} />
     </Box>
   );
 };
