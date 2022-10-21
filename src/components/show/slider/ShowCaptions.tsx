@@ -1,12 +1,15 @@
-import { useState} from 'react'
+import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { Box, IconButton } from "@mui/material";
 import { PlayArrow, Add, Info } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ShowInfo from "../info/ShowInfo";
-import ActionTooltip from '../../ui/ActionTooltip';
+import ActionTooltip from "../../ui/ActionTooltip";
 
 const ShowCaptions: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -26,7 +29,6 @@ const ShowCaptions: React.FC = () => {
       },
     },
   });
-
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -54,7 +56,13 @@ const ShowCaptions: React.FC = () => {
           }}
         >
           <ActionTooltip title="Odtwarzaj">
-            <IconButton>
+            <IconButton
+              onClick={() =>
+                location.pathname === "/movies"
+                  ? navigate("/movies/id")
+                  : navigate("/series/id")
+              }
+            >
               <PlayArrow />
             </IconButton>
           </ActionTooltip>

@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useLocation } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,6 +13,8 @@ import { Link } from "react-router-dom";
 import ShowCaptions from "./ShowCaptions";
 
 const ShowCarousel: React.FC = () => {
+  const location = useLocation();
+
   return (
     <Grid item xs={12}>
       <h3
@@ -93,7 +96,10 @@ const ShowCarousel: React.FC = () => {
               backgroundColor: "inherit",
             }}
           >
-            <Link className="img-link" to="/movies">
+            <Link
+              className="img-link"
+              to={location.pathname === "/movies" ? "/movies/id" : "/series/id"}
+            >
               <img
                 style={{
                   position: "relative",

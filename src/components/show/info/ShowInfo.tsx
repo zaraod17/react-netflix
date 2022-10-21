@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -27,6 +29,9 @@ const ShowInfo: React.FC<{
   isOpen: boolean;
   handleClose: () => void;
 }> = (props) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [open, setOpen] = React.useState(props.isOpen);
   // const handleOpen = () => setOpen(props.isOpen);
   // const handleClose = () => setOpen(false);
@@ -117,6 +122,11 @@ const ShowInfo: React.FC<{
                   marginY: "1rem",
                 }}
                 startIcon={<PlayArrow />}
+                onClick={() =>
+                  location.pathname === "/movies"
+                    ? navigate("/movies/id")
+                    : navigate("/series/id")
+                }
               >
                 <h4 style={{ margin: 0 }}>Odtwórz</h4>
               </Button>

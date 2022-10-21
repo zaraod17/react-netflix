@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import { Box, Grid, Button } from "@mui/material";
 import { PlayArrow, Info } from "@mui/icons-material";
 
@@ -6,6 +8,9 @@ import "./ShowBanner.scss";
 import ShowInfo from "../info/ShowInfo";
 
 const ShowBanner: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [open, setOpen] = useState<boolean>(false);
 
   const openModal = () => {
@@ -45,6 +50,11 @@ const ShowBanner: React.FC = () => {
               zIndex: 1,
             }}
             startIcon={<PlayArrow />}
+            onClick={() =>
+              location.pathname === "/movies"
+                ? navigate("/movies/id")
+                : navigate("/series/id")
+            }
           >
             <Box
               sx={{
