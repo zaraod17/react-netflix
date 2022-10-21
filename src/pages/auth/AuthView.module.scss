@@ -1,0 +1,52 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: {
+    image: url("https://paperwriter.ca/wp-content/uploads/2022/05/BBC-courtroom-drama-You-Dont-Know-Me-hit-Netflix-in.jpg");
+    repeat: no-repeat;
+    size: cover;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cont {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    display: flex;
+
+    form {
+      label {
+        color: white;
+      }
+      input {
+        color: white;
+      }
+
+      h4 {
+        margin: 0;
+      }
+
+      .loginSignup {
+        display: flex;
+        flex-wrap: wrap;
+        width: 40%;
+        color: #737373;
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 1rem;
+
+        a {
+          text-decoration: none;
+          color: white;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
