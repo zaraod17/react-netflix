@@ -8,12 +8,15 @@ import SearchView from "./pages/search/SearchView";
 import NotFoundView from "./pages/errors/NotFoundView";
 import MyListView from "./pages/user/MyListView";
 import AuthView from "./pages/auth/AuthView";
+import RegisterView from "./pages/auth/RegisterView";
+import LandingView from "./pages/main/LandingView";
 
 function App() {
   return (
     <Layout>
       <Routes>
         <Route path="/" element={<Navigate replace to="/movies" />} />
+        <Route path="/main" element={<LandingView />} />
         <Route path="/movies" element={<MoviesView />} />
         <Route path="/movies/:movieId" element={<MovieDetailsView />} />
         <Route path="/series" element={<SeriesView />} />
@@ -21,6 +24,7 @@ function App() {
         <Route path="/search" element={<SearchView />} />
         <Route path="/my-list" element={<MyListView />} />
         <Route path="/auth" element={<AuthView />}></Route>
+        <Route path="/auth/register" element={<RegisterView />}></Route>
         <Route path="*" element={<NotFoundView />} />
       </Routes>
     </Layout>

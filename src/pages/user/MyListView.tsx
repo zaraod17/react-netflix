@@ -4,7 +4,7 @@ import { Grid, Box, IconButton } from "@mui/material";
 import classes from "./MyList.module.scss";
 
 import { Link } from "react-router-dom";
-import { PlayArrow, Add, Info } from "@mui/icons-material";
+import { PlayArrow, Remove, Info } from "@mui/icons-material";
 import ShowInfo from "../../components/show/info/ShowInfo";
 import ActionTooltip from "../../components/ui/ActionTooltip";
 
@@ -91,9 +91,9 @@ const MyListView: React.FC = () => {
                         <PlayArrow />
                       </IconButton>
                     </ActionTooltip>
-                    <ActionTooltip title="Dodaj do listy">
+                    <ActionTooltip title="Usuń z listy">
                       <IconButton sx={{ color: "white" }}>
-                        <Add />
+                        <Remove />
                       </IconButton>
                     </ActionTooltip>
                     <ActionTooltip title="Pokaż info">

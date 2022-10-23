@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Box, TextField, Button } from "@mui/material";
-import {} from "@mui/icons-material";
 
 import classes from "./AuthView.module.scss";
 import { Link } from "react-router-dom";

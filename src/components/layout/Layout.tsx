@@ -1,12 +1,16 @@
 import React, { PropsWithChildren } from "react";
-import { Grid, Box } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 import MainHeader from "./MainHeader";
 
 const Layout: React.FC<PropsWithChildren> = (props) => {
+  const location = useLocation();
+
+  let isAuth = location.pathname === "movies" || location.pathname === "series";
+
   return (
     <React.Fragment>
-      <MainHeader />
+      {<MainHeader />}
       {/* <Box
         sx={{
           flexGrow: 1,

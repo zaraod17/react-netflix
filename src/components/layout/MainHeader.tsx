@@ -29,7 +29,10 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const MainHeader: React.FC = () => {
   const location = useLocation();
 
-  let isAuth = location.pathname === "/auth";
+  let isAuth =
+    location.pathname === "/auth" ||
+    location.pathname === "/auth/register" ||
+    location.pathname === "/main";
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
