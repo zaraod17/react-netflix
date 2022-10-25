@@ -2,48 +2,55 @@
   width: 100vw;
   height: 100vh;
   background: {
-    image: url("https://paperwriter.ca/wp-content/uploads/2022/05/BBC-courtroom-drama-You-Dont-Know-Me-hit-Netflix-in.jpg");
+    image: url("https://assets.nflxext.com/ffe/siteui/vlv3/79fe83d4-7ef6-4181-9439-46db72599559/56fcbc9b-9ff0-4d50-a32e-5a2fc5b745ac/PL-pl-20221017-popsignuptwoweeks-perspective_alpha_website_small.jpg");
     repeat: no-repeat;
     size: cover;
   }
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  .cont {
-    width: 50%;
-    height: 50%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
+
+  .backdrop {
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
+    align-items: center;
+    justify-content: center;
 
-    form {
-      label {
-        color: white;
-      }
-      input {
-        color: white;
-      }
+    .cont {
+      width: 50%;
+      height: 50%;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      display: flex;
 
-      h4 {
-        margin: 0;
-      }
-
-      .loginSignup {
-        display: flex;
-        flex-wrap: wrap;
-        width: 40%;
-        color: #737373;
-        font-size: 16px;
-        font-weight: 400;
-        margin-top: 1rem;
-
-        a {
-          text-decoration: none;
+      form {
+        label {
           color: white;
+        }
+        input {
+          color: white;
+        }
 
-          &:hover {
-            text-decoration: underline;
+        h4 {
+          margin: 0;
+        }
+
+        .loginSignup {
+          display: flex;
+          flex-wrap: wrap;
+          width: 40%;
+          color: #737373;
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 1rem;
+
+          a {
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }

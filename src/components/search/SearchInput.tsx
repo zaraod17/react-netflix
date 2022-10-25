@@ -60,9 +60,10 @@ const SearchInput: React.FC = () => {
   const [prevSearchTerm, setPrevSearchTerm] = useState("");
 
   const handleSearchTerm = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(
-      (prevState) => (setPrevSearchTerm(prevState), event.target.value)
-    );
+    setSearchTerm((prevState) => {
+      setPrevSearchTerm(prevState);
+      return event.target.value;
+    });
   };
 
   const clearSearchingTerm = (): void => {
@@ -81,7 +82,7 @@ const SearchInput: React.FC = () => {
     } else if (searchTerm === "") {
       return;
     }
-  }, [searchTerm]);
+  }, [searchTerm, prevSearchTerm, location.search,]);
 
   return (
     <>

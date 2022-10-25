@@ -10,7 +10,6 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import SearchIcon from "@mui/icons-material/Search";
 import { NavLink } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Tooltip from "@mui/material/Tooltip";
@@ -30,9 +29,7 @@ const MainHeader: React.FC = () => {
   const location = useLocation();
 
   let isAuth =
-    location.pathname === "/auth" ||
-    location.pathname === "/auth/register" ||
-    location.pathname === "/main";
+    location.pathname.includes("/auth") || location.pathname.includes("main");
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);

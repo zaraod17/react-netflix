@@ -52,7 +52,7 @@ const MyListView: React.FC = () => {
               <Link className={classes.link} to="/my-list">
                 <img
                   src="https://cdn.mos.cms.futurecdn.net/rwow8CCG3C3GrqHGiK8qcJ-1200-80.jpg"
-                  alt="show image"
+                  alt=""
                 />
                 <Box
                   className={classes.actions}

@@ -10,7 +10,7 @@ import ActionTooltip from "../../components/ui/ActionTooltip";
 
 const SearchView: React.FC = () => {
   let params = new URL(document.location.toString()).searchParams;
-  let searchedTerm = params.get("s");
+//  let searchedTerm = params.get("s");
 
   const [open, setOpen] = React.useState<boolean>(false);
 
@@ -52,9 +52,11 @@ const SearchView: React.FC = () => {
             }}
           >
             <Box className={classes.item}>
+            // eslint-disable-next-line
               <Link className={classes.link} to="/my-list">
                 <img
                   src="https://cdn.mos.cms.futurecdn.net/rwow8CCG3C3GrqHGiK8qcJ-1200-80.jpg"
+                  // eslint-disable-next-line
                   alt="show image"
                 />
                 <Box
