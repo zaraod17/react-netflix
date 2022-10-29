@@ -1,48 +1,75 @@
-.banner {
-  width: 100vw;
+.wrapper {
+  width: inherit;
   height: 85vh;
-  background: {
-    image: url("https://assets.nflxext.com/ffe/siteui/vlv3/79fe83d4-7ef6-4181-9439-46db72599559/56fcbc9b-9ff0-4d50-a32e-5a2fc5b745ac/PL-pl-20221017-popsignuptwoweeks-perspective_alpha_website_small.jpg");
-    repeat: no-repeat;
-    size: cover;
+
+  .banner {
+    width: 100%;
+    height: inherit;
+    background: {
+      image: url("https://assets.nflxext.com/ffe/siteui/vlv3/79fe83d4-7ef6-4181-9439-46db72599559/56fcbc9b-9ff0-4d50-a32e-5a2fc5b745ac/PL-pl-20221017-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+      repeat: no-repeat;
+      size: cover;
+    }
+
+    .backdrop {
+      width: inherit;
+      height: inherit;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .header {
+        display: flex;
+        margin-top: 0;
+        width: inherit;
+        height: 10vh;
+        background-color: rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+          padding-left: 3rem;
+          color: red;
+          font-size: calc(16px + 1.5vw);
+        }
+
+        button {
+          color: white;
+          background-color: red;
+          margin-right: 3vw;
+        }
+      }
+
+      .info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button {
+          color: white;
+          background-color: red;
+        }
+      }
+    }
   }
 
-  .backdrop {
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.4);
+  .questions {
+    width: 100%;
+    height: 85vh;
+    background: black;
+    margin-top: 1vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    .header {
-      display: flex;
-      margin-top: 0;
-      width: inherit;
-      height: 10vh;
-      background-color: rgba(0, 0, 0, 0.2);
-      justify-content: space-between;
-      align-items: center;
-
-      h1 {
-        padding-left: 3rem;
-        color: red;
-        font-size: calc(16px + 1.5vw);
-      }
-
-      button {
-        color: white;
-        background-color: red;
-        margin-right: 3vw;
-      }
+    h1 {
+      color: white;
     }
 
-    .info {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+
   }
 }
